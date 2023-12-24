@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: k8s-deployment
   labels:
-    app: app
+    app: k8s-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: app
+      env: prod
   template:
     metadata:
       labels:
-        app: app
+        env: prod
     spec:
       containers:
-      - name: app
-        image: iantipin/otus-service:v3
+      - name: otus-service
+        image: iantipin/otus-service:v1
         ports:
-        - containerPort: 80
+        - containerPort: 8080
