@@ -6,6 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /health/
   name: k8s-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: arch.homework
     http:
